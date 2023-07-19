@@ -2,7 +2,13 @@ h1 {
   text-align: center;
 }
 
+input {
+  border: none;
+  outline: none;
+}
+
 button {
+  padding-right: 0;
   border: none;
   background-color: #fff;
   cursor: pointer;
@@ -24,7 +30,7 @@ button {
 }
 
 .todo-li button {
-  margin-left: 575px;
+  margin-left: 645px;
 }
 
 #task-list {
