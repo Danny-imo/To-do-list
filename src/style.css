@@ -80,3 +80,11 @@ body {
   border: none;
   background-color: #fff;
 }
+
+.drag-list li {
+  cursor: grab;
+}
+
+.drag-list li:active {
+  cursor: grabbing;
+}
