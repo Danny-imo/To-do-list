@@ -1,4 +1,4 @@
-let tasks = [];
+export let tasks = [];
 
 export function renderTasks() {
   const taskList = document.getElementById('task-list');
