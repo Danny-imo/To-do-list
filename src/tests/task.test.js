@@ -1,5 +1,5 @@
 // Import the functions you want to test
-
+import { clearCompletedTasks } from '../modules/todo.js';
 // Mock the DOM
 document.body.innerHTML = `
   <ul id="task-list">
@@ -65,5 +65,26 @@ describe('Todo Functions', () => {
       expect(updatedTasks[0].description).toBe('Task 1');
       expect(updatedTasks[1].description).toBe('Task 2');
     });
+  });
+});
+
+describe('clearCompletedTasks', () => {
+  test('it should remove completed tasks from the tasks array and the DOM', () => {
+    // Mock initial tasks in localStorage
+    const initialTasks = [
+      { description: 'Task 1', completed: true, index: 1 },
+      { description: 'Task 2', completed: false, index: 2 },
+      { description: 'Task 3', completed: true, index: 3 },
+    ];
+    localStorage.setItem('tasks', JSON.stringify(initialTasks));
+
+    // Call the clearCompletedTasks function
+    clearCompletedTasks();
+
+    // Get the updated tasks from localStorage
+    const tasks = JSON.parse(localStorage.getItem('tasks'));
+
+    // Assert that the completed tasks are removed from the tasks array
+    expect(tasks).toHaveLength(0);
   });
 });
