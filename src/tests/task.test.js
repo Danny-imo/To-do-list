@@ -1,5 +1,5 @@
 import { editTask, updateIndexes } from '../modules/todo.js';
-
+import { clearCompletedTasks } from '../modules/todo.js';
 jest.mock('../modules/todo', () => ({
   ...jest.requireActual('../modules/todo'),
   updateIndexes: jest.fn(),
