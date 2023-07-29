@@ -81,9 +81,7 @@ export const updateTaskDescription = (index, newDescription) => {
   saveTasks();
 };
 
-export function editTask(index) {
-  const listItem = document.querySelectorAll('.todo-li')[index];
-  const descriptionInput = listItem.querySelector('input[type="text"]');
+export function editTask(listItem, descriptionInput) {
   descriptionInput.focus();
 }
 
@@ -100,7 +98,7 @@ export function handleKeyPress(event) {
   }
 }
 
-function updateIndexes() {
+export function updateIndexes() {
   tasks.forEach((task, index) => {
     task.index = index + 1;
   });
