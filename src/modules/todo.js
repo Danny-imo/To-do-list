@@ -63,27 +63,25 @@ export function addTask() {
   }
 }
 
-export function deleteTask(index) {
+export const deleteTask = (index) => {
   tasks.splice(index, 1);
   updateIndexes();
   saveTasks();
   renderTasks();
-}
+};
 
-export function toggleCompleted(index) {
+export const toggleCompleted = (index) => {
   tasks[index].completed = !tasks[index].completed;
   saveTasks();
   renderTasks();
-}
+};
 
-export function updateTaskDescription(index, newDescription) {
+export const updateTaskDescription = (index, newDescription) => {
   tasks[index].description = newDescription.trim();
   saveTasks();
-}
+};
 
-export function editTask(index) {
-  const listItem = document.querySelectorAll('.todo-li')[index];
-  const descriptionInput = listItem.querySelector('input[type="text"]');
+export function editTask(listItem, descriptionInput) {
   descriptionInput.focus();
 }
 
@@ -100,7 +98,7 @@ export function handleKeyPress(event) {
   }
 }
 
-function updateIndexes() {
+export function updateIndexes() {
   tasks.forEach((task, index) => {
     task.index = index + 1;
   });
